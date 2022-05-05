@@ -37,18 +37,24 @@ class OffreType extends AbstractType
             ->add('couleur',ColorType::class)
             ->add('typeoffre', ChoiceType::class, [
                 'choices' => [
-                    'Offre Créateur de contenu' => [
-                        'Demande Sponsoring' => 'stock_Demande Sponsoring',
-                        'Demande Partenaire' => 'stock_Demande Partenaire',
+                    'Choisir votre type offre' => [
+                        'Faite votre choix' => 'Faite votre choix',
+
+                    ],
+                    'Offre Créateur de Contenu' => [
+                        'Demande Sponsoring' => 'Demande_Sponsoring',
+                        'Demande Partenaire' => 'Demande_Partenaire',
                     ],
                     'Offre Sponsor' => [
-                        'Besoin de CC pour contrat' => 'stock_Besoin de CC pour contrat',
-                        'Besoin de CC pour Publicite' => 'stock_Besoin de CC pour Publicite',
-                        'Besoin de CC pour evennement' => 'stock_Besoin de CC pour evennement',],],])
+                        'Besoin de CC pour Contrat' => 'Besoin_de_CC_pour_Contrat',
+                        'Besoin de CC pour Publicite' => 'Besoin_de_CC_pour_Publicite',
+                        'Besoin de CC pour Evennement' => 'Besoin_de_CC_pour_Evennement',]
+                    ,],])
 
             ->add('cincreateuroffre',EntityType::class, [
         'class' => User::class,
         'choice_label' => 'cin',
+
     ])
         ;
     }

@@ -68,46 +68,33 @@
 
                             <li class="dropdown"><a href="#"><span>Home</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                                 <ul>
-                                    <li><a href="{{ path('app_home') }}" class="active">Home.html</a></li>
+                                    <li><a href="{{ path('app_home') }}" class="active">Home</a></li>
                                     <li><a href="{{ path('app_user') }}">Page Utilisateur</a></li>
+                                    <li><a href="{{ path('reclamations_moi') }}">Mes Reclamations</a></li>
+                                    <li><a href="{{ path('offres_moi') }}">Mes Offres</a></li>
                                     <li><a href="{{ path('impr') }}">Imprimer toutes les Offre</a></li>
-                                    <li><a href="">Home 4 - index-4.html</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown"><a href="{{ path('toutesles_offress') }}"><span>Offre</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                                <ul>
+                                    <li><a href="{{ path('offre_new') }}" class="active">Cree + Offre </a></li>
+                                    <li><a href="{{ path('toutesles_offress') }}">Tous les Offres</a></li>
+                                    <li><a href="{{ path('offres_moi') }}">Mes Offres</a></li>
+                                    <li><a href="{{ path('impr') }}">Imprimer toutes les Offre</a></li>
                                 </ul>
                             </li>
 
                             <li><a class="nav-link scrollto" href="{{ path('app_home') }}#about">Connaître</a></li>
                             <li><a class="nav-link scrollto" href="{{ path('app_home') }}#services">Services</a></li>
                             <li><a class="nav-link scrollto" href="{{ path('app_home') }}#team">Equipe</a></li>
-                            <li class="dropdown megamenu"><a href="#"><span>Mega Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                                <ul>
-                                    <li>
-                                        <a href="#">Column 1 link 1</a>
-                                        <a href="#">Column 1 link 2</a>
-                                        <a href="#">Column 1 link 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Column 2 link 1</a>
-                                        <a href="#">Column 2 link 2</a>
-                                        <a href="#">Column 3 link 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Column 3 link 1</a>
-                                        <a href="#">Column 3 link 2</a>
-                                        <a href="#">Column 3 link 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Column 4 link 1</a>
-                                        <a href="#">Column 4 link 2</a>
-                                        <a href="#">Column 4 link 3</a>
-                                    </li>
-                                </ul>
-                            </li>
+
 
                             <li><a class="nav-link scrollto" href="{{ path('app_home') }}#contact">Nous contacter</a></li>
                         </ul>
                         <i class="bi bi-list mobile-nav-toggle d-none"></i>
                     </nav><!-- .navbar -->
-
+                    <a class="btn-getstarted scrollto" href="{{ path('app_user') }}">Utilisateur</a>
                     <a class="btn-getstarted scrollto" href="{{ path('app_user_index') }}">Dashboard Admin</a>
 
                 </div>

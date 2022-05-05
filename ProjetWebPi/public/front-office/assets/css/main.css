@@ -2771,3 +2771,17 @@ section {
   background: var(--color-primary);
   text-decoration: none;
 }
+
+
+.btnsupp {
+  background-color: #2E51FF;
+  border: none;
+  color: white;
+  padding: 3px;
+  margin: 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  cursor: pointer;
+}

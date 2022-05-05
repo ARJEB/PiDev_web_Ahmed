@@ -32,8 +32,6 @@ class Reclamation
 
     /**
      * @var \DateTime
-     * @Assert\GreaterThanOrEqual(value="today",
-     * message="la date doit etre superieur ou egale a la date de aujourd'hui")
      * @ORM\Column(name="datereclamation", type="date", nullable=false)
      */
     private $datereclamation;
@@ -41,12 +39,6 @@ class Reclamation
     /**
      * @var string
      * @Assert\NotNull(message="Il faut remplire ce chemp")
-     * @Assert\Length(
-     *      min = 10,
-     *      max = 20,
-     *      minMessage = "Votre description dois contenir plus que 10 characters",
-     *      maxMessage = "Votre description dois contenir moins de 20"
-     * )
      * @ORM\Column(name="descriptionrecla", type="text", length=65535, nullable=false)
      */
     private $descriptionrecla;

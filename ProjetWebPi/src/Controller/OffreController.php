@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 /**
  * @Route("/offre")
  */
@@ -77,6 +78,18 @@ class OffreController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //get img from FORM
+            $image = $form->get('imgsrc')->getData();
+            $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+            $fichier = $originalFilename.md5(uniqid()).'.'.$image->guessExtension();
+            $destination = $this->getParameter('kernel.project_dir').'/public/uploads';
+
+            // On copie le fichier dans le dossier uploads
+            $image->move(
+                $destination ,
+                $fichier
+            );
+            $offre->setImgsrc($fichier);
             $offreRepository->add($offre);
             return $this->redirectToRoute('app_offre_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -98,4 +111,11 @@ class OffreController extends AbstractController
 
         return $this->redirectToRoute('app_offre_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+
+
+
+
+
 }

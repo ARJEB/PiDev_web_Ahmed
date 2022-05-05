@@ -31,8 +31,12 @@
                 <td>{{ offre.couleur }}</td>
                 <td>{{ offre.typeoffre }}</td>
                 <td>
-                    <a href="{{ path('app_offre_show', {'idoffre': offre.idoffre}) }}">show</a>
-                    <a href="{{ path('app_offre_edit', {'idoffre': offre.idoffre}) }}">edit</a>
+                    <a href="{{ path('app_offre_show', {'idoffre': offre.idoffre}) }}">Détaillé</a>
+                    <a href="{{ path('app_offre_edit', {'idoffre': offre.idoffre}) }}">Editer</a>
+                    <form method="post" action="{{ path('app_offre_delete', {'idoffre': offre.idoffre}) }}" onsubmit="return confirm('Vous ete sur de supprimer cette offre?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ offre.idoffre) }}">
+                        <button class="btn">Supprimer</button>
+                    </form>
                 </td>
             </tr>
         {% else %}
@@ -43,5 +47,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_offre_new') }}">Create new</a>
+    <a href="{{ path('app_offre_new') }}">Cree un offre</a>
 {% endblock %}

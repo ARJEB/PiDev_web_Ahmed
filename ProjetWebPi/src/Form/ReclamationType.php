@@ -24,7 +24,7 @@ class ReclamationType extends AbstractType
             ->add('datereclamation',DateType::class, array(
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
-                'data' => new \DateTime("yesterday")
+                'data' => new \DateTime("today")
             ))
             ->add('descriptionrecla',TextareaType::class)
             ->add('comuniquer',TextareaType::class)

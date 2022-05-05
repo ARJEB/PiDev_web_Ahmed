@@ -35,6 +35,19 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            //get img from FORM
+            $image = $form->get('image')->getData();
+            $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+            $fichier = $originalFilename.md5(uniqid()).'.'.$image->guessExtension();
+            $destination = $this->getParameter('kernel.project_dir').'/public/userimg';
+
+            // On copie le fichier dans le dossier uploads
+            $image->move(
+                $destination ,
+                $fichier
+            );
+            $user->setImage($fichier);
             $userRepository->add($user);
             return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -64,6 +77,17 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $image = $form->get('image')->getData();
+            $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+            $fichier = $originalFilename.md5(uniqid()).'.'.$image->guessExtension();
+            $destination = $this->getParameter('kernel.project_dir').'/public/userimg';
+
+            // On copie le fichier dans le dossier uploads
+            $image->move(
+                $destination ,
+                $fichier
+            );
+            $user->setImage($fichier);
             $userRepository->add($user);
             return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
         }
